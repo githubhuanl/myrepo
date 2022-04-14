@@ -1,11 +1,6 @@
 # R语言入门与数据分析-----------------------------------------------------------
 
-# P1-6    Introduction of R-----------------------------------------------------
-
-# R语言特点
-#   - 优点：编程开源（大量拓展包）
-#   - 缺点：不够规范、不支持多线程
-#   - 函数后必须接括号
+Introduction of R-------day1----------------------------------------------
 
 getwd()
 # 看当前工作路径
@@ -79,36 +74,52 @@ save.image()
 # 保存工作空间（图片不会自动保存）
 q() 退出
 
-------------------------
+------------------------day2------------------------
 
 # R拓展包安装
 # - 在线
 #   通过访问镜像站点
 #   拓展包的名字都需要被引号
-    install.package()
+    install.package() 安装包的函数
     # eg. install.package("vcd")
-    install.packages()
+    安装多个包：创建c向量
     # eg. install.packages(c("a", "b", "c"))
-# - 离线（源代码）
+    # eg. install.packages(c('AER','ca'))
+    
+update.packages() 更新安装包
+
+# - 离线（源代码）(不用管，应该用不到)
 #   镜像站点下载源代码
 #   需要注意包之间的依赖关系
 
-require()
-# 加载包（eg. require(vcd)）
+.libPaths() 库所在的位置
+library() 库中有哪些包
 
-detach() # eg. detach("package:vcd")
+require()
+# 加载包
+（eg. require(vcd)）
+
+help(package='vcd') 调出包的帮助文档
+library(help='vcd') 列出R包基础内容，数据集（复制index下面的单词，敲回车会调出数据）
+ls('package:vcd') 包中所有的函数
+data(package='vcd') 包中所有的数据集
+
+detach() 
+# eg. detach("package:vcd") 移除包
 remove.packages() # eg. remove.packages("vcd")
 # 去除包
 
-installed.packages()
+installed.packages()  用不到（第十二集最后，如果之后有换设备的需要可以再回来学...）
 # 可用于拓展包移植，比如：
-
 # 老设备
 Rpack <- installed.packages() [,1] # Rpack赋值所有拓展包的名字
 save(Rpack, file = "Rpack.Rdata") # 保存文件
-
 # 新设备
 for (i in Rpact) install.packages(i)
+
+帮助文档：
+help(sum) sum函数的帮助文档
+help(package='vcd') 调出包的帮助文档 调不出来的话是因为没有用library函数载入
 
 # ?函数名（一个问号查函数）eg. ?mean
 # ??函数名（两个问好查拓展包）eg. ??heatmap
@@ -122,9 +133,7 @@ RSiteSearch("关键字")
 # R -> 大数据 -> 批量化、自动化
 # Excel -> 鼠标操作方便
 
-
-
-# P15     R内置数据集-----------------------------------------------------------
+# P15     R内置数据集
 
 # - 存在datasets包中
 # - data()输出所有包含的数据集 或 data(package = "包名")
@@ -140,7 +149,6 @@ data.frame()
 
 data(数据集名称, package = "包名")
 # 只加载拓展包里面的数据集，忽略包
-
 
 
 # P16-26  数据结构（R储存组织数据的方式）---------------------------------------
