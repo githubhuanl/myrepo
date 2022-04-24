@@ -2097,7 +2097,7 @@ attr(,"class")
           # 热力图：数据矩阵
     plot(women$height)
     plot(women$height, women$weight)
-    plot(as.factor(women$height))
+    plot(as.(women$height))
     
     plot(as.factor(mtcars$cyl)) # 直方图
     plot(as.factor(mtcars$cyl), mtcars$carb) # 箱线图
